@@ -250,7 +250,7 @@ class DataTable2 extends DataTable {
     required bool? checked,
     required VoidCallback? onRowTap,
     required ValueChanged<bool?>? onCheckboxChanged,
-    required MaterialStateProperty<Color?>? overlayColor,
+    required WidgetStateProperty<Color?>? overlayColor,
     required bool tristate,
     required double rowHeight}) {
     final ThemeData themeData = Theme.of(context);
@@ -295,7 +295,7 @@ class DataTable2 extends DataTable {
     required bool sorted,
     required bool ascending,
     required double effectiveHeadingRowHeight,
-    required MaterialStateProperty<Color?>? overlayColor}) {
+    required WidgetStateProperty<Color?>? overlayColor}) {
     final ThemeData themeData = Theme.of(context);
     label = Row(
       textDirection: numeric ? TextDirection.rtl : null,
@@ -465,8 +465,8 @@ class DataTable2 extends DataTable {
         headingRowColor ?? theme.dataTableTheme.headingRowColor;
     final effectiveDataRowColor =
         dataRowColor ?? theme.dataTableTheme.dataRowColor;
-    final defaultRowColor = MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-      if (states.contains(MaterialState.selected)) {
+    final defaultRowColor = WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+      if (states.contains(WidgetState.selected)) {
         return theme.colorScheme.primary.withOpacity(0.08);
       }
       return null;
@@ -537,13 +537,13 @@ class DataTable2 extends DataTable {
           context,
           theme,
           fixedColumnsColor != null
-              ? MaterialStateProperty.all<Color?>(fixedColumnsColor)
+              ? WidgetStateProperty.all<Color?>(fixedColumnsColor)
               : effectiveHeadingRowColor,
           actualFixedColumns),
       ..._buildTableRows(
           anyRowSelectable,
           fixedColumnsColor != null
-              ? MaterialStateProperty.all<Color?>(fixedColumnsColor)
+              ? WidgetStateProperty.all<Color?>(fixedColumnsColor)
               : effectiveDataRowColor,
           context,
           theme,
@@ -557,7 +557,7 @@ class DataTable2 extends DataTable {
         : _buildTableRows(
         anyRowSelectable,
         fixedColumnsColor != null
-            ? MaterialStateProperty.all<Color?>(fixedColumnsColor)
+            ? WidgetStateProperty.all<Color?>(fixedColumnsColor)
             : effectiveDataRowColor,
         context,
         theme,
@@ -606,7 +606,7 @@ class DataTable2 extends DataTable {
           context,
           theme,
           fixedCornerColor != null
-              ? MaterialStateProperty.all<Color?>(fixedCornerColor)
+              ? WidgetStateProperty.all<Color?>(fixedCornerColor)
               : effectiveHeadingRowColor,
           actualFixedColumns)
     ]
@@ -1012,7 +1012,7 @@ class DataTable2 extends DataTable {
       List<DataRow> rows,
       int actualFixedRows,
       double defaultDataRowHeight,
-      MaterialStateProperty<Color?>? effectiveDataRowColor) {
+      WidgetStateProperty<Color?>? effectiveDataRowColor) {
     double checkBoxWidth = 0;
 
     if (displayCheckboxColumn) {
