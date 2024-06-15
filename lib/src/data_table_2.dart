@@ -315,7 +315,7 @@ class DataTable2 extends DataTable {
 
     final TextStyle effectiveHeadingTextStyle = headingTextStyle ??
         themeData.dataTableTheme.headingTextStyle ??
-        themeData.textTheme.subtitle2!;
+       themeData.textTheme.titleSmall!;
 
     label = Container(
       padding: padding,
@@ -363,7 +363,7 @@ class DataTable2 extends DataTable {
     required GestureTapCallback? onRowSecondaryTap,
     required GestureTapDownCallback? onRowSecondaryTapDown,
     required VoidCallback? onSelectChanged,
-    required MaterialStateProperty<Color?>? overlayColor}) {
+    required WidgetStateProperty<Color?>? overlayColor}) {
     final ThemeData themeData = Theme.of(context);
     if (showEditIcon) {
       const Widget icon = Icon(Icons.edit, size: 18.0);
@@ -376,7 +376,7 @@ class DataTable2 extends DataTable {
 
     final TextStyle effectiveDataTextStyle = dataTextStyle ??
         themeData.dataTableTheme.dataTextStyle ??
-        themeData.textTheme.bodyText2!;
+        themeData.textTheme.bodyMedium!;
     final double effectiveDataRowHeight =
         specificRowHeight ?? defaultDataRowHeight;
 

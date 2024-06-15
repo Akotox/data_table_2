@@ -82,31 +82,31 @@ class DataTable2DemoState extends State<DataTable2Demo> {
             headingRowColor:
                 WidgetStateColor.resolveWith((states) => Colors.grey[850]!),
             headingTextStyle: const TextStyle(color: Colors.white),
-            headingCheckboxTheme: const CheckboxThemeData(
-                side: BorderSide(color: Colors.white, width: 2.0)),
+            // headingCheckboxTheme: const CheckboxThemeData(
+            //     side: BorderSide(color: Colors.white, width: 2.0)),
             //checkboxAlignment: Alignment.topLeft,
-            isHorizontalScrollBarVisible: true,
-            isVerticalScrollBarVisible: true,
+            // isHorizontalScrollBarVisible: true,
+            // isVerticalScrollBarVisible: true,
             columnSpacing: 12,
             horizontalMargin: 12,
-            sortArrowBuilder: getCurrentRouteOption(context) == custArrows
-                ? (ascending, sorted) => sorted || alwaysShowArrows
-                    ? Stack(
-                        children: [
-                          Padding(
-                              padding: const EdgeInsets.only(right: 0),
-                              child: _SortIcon(
-                                  ascending: true,
-                                  active: sorted && ascending)),
-                          Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: _SortIcon(
-                                  ascending: false,
-                                  active: sorted && !ascending)),
-                        ],
-                      )
-                    : null
-                : null,
+            // sortArrowBuilder: getCurrentRouteOption(context) == custArrows
+            //     ? (ascending, sorted) => sorted || alwaysShowArrows
+            //         ? Stack(
+            //             children: [
+            //               Padding(
+            //                   padding: const EdgeInsets.only(right: 0),
+            //                   child: _SortIcon(
+            //                       ascending: true,
+            //                       active: sorted && ascending)),
+            //               Padding(
+            //                   padding: const EdgeInsets.only(left: 10),
+            //                   child: _SortIcon(
+            //                       ascending: false,
+            //                       active: sorted && !ascending)),
+            //             ],
+            //           )
+            //         : null
+            //     : null,
             border: getCurrentRouteOption(context) == fixedColumnWidth
                 ? TableBorder(
                     top: const BorderSide(color: Colors.black),

@@ -72,7 +72,7 @@ class DataTable2ScrollupDemoState extends State<DataTable2ScrollupDemo> {
                           WidgetStateProperty.all<Color>(Colors.black))),
               child: DataTable2(
                   scrollController: _controller,
-                  horizontalScrollController: _horizontalController,
+                  // horizontalScrollController: _horizontalController,
                   columnSpacing: 0,
                   horizontalMargin: 12,
                   bottomMargin: 10,
