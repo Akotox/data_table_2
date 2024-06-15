@@ -615,13 +615,13 @@ class DataTable2 extends DataTable {
           context,
           theme,
           fixedCornerColor != null
-              ? MaterialStateProperty.all<Color?>(fixedCornerColor)
+              ? WidgetStateProperty.all<Color?>(fixedCornerColor)
               : effectiveHeadingRowColor,
           actualFixedColumns),
       ..._buildTableRows(
           anyRowSelectable,
           fixedCornerColor != null
-              ? MaterialStateProperty.all<Color?>(fixedCornerColor)
+              ? WidgetStateProperty.all<Color?>(fixedCornerColor)
               : effectiveDataRowColor,
           context,
           theme,
@@ -1069,13 +1069,13 @@ class DataTable2 extends DataTable {
                 : defaultDataRowHeight);
 
         if (fixedCornerRows != null && rowIndex < fixedCornerRows.length - 1) {
-          fixedCornerRows[rowIndex + 1].children![0] = x;
+          fixedCornerRows[rowIndex + 1].children[0] = x;
         } else if (fixedColumnRows != null) {
-          fixedColumnRows[rowIndex - skipRows].children![0] = x;
+          fixedColumnRows[rowIndex - skipRows].children[0] = x;
         } else if (fixedRows != null && rowIndex < fixedRows.length - 1) {
-          fixedRows[rowIndex + 1].children![0] = x;
+          fixedRows[rowIndex + 1].children[0] = x;
         } else {
-          coreRows![rowIndex - skipRows].children![0] = x;
+          coreRows![rowIndex - skipRows].children[0] = x;
         }
 
         rowIndex += 1;
@@ -1173,11 +1173,11 @@ class DataTable2 extends DataTable {
   }
 
   List<TableRow> _buildTableRows(bool anyRowSelectable,
-      MaterialStateProperty<Color?>? effectiveDataRowColor,
+      WidgetStateProperty<Color?>? effectiveDataRowColor,
       BuildContext context,
       ThemeData theme,
       int numberOfCols,
-      MaterialStateProperty<Color?> defaultRowColor,
+      WidgetStateProperty<Color?> defaultRowColor,
       TableRow? headingRow,
       [int skipRows = 0,
         int takeRows = 0,
@@ -1194,9 +1194,9 @@ class DataTable2 extends DataTable {
           final bool isSelected = rows[rowStartIndex + actualIndex].selected;
           final bool isDisabled = anyRowSelectable &&
               rows[rowStartIndex + actualIndex].onSelectChanged == null;
-          final Set<MaterialState> states = <MaterialState>{
-            if (isSelected) MaterialState.selected,
-            if (isDisabled) MaterialState.disabled,
+          final Set<WidgetState> states = <WidgetState>{
+            if (isSelected) WidgetState.selected,
+            if (isDisabled) WidgetState.disabled,
           };
           final Color? resolvedDataRowColor = (forceEffectiveDataRowColor
               ? effectiveDataRowColor
@@ -1236,7 +1236,7 @@ class DataTable2 extends DataTable {
 
   TableRow _buildHeadingRow(BuildContext context,
       ThemeData theme,
-      MaterialStateProperty<Color?>? effectiveHeadingRowColor,
+      WidgetStateProperty<Color?>? effectiveHeadingRowColor,
       int numberOfCols) {
     var headingRow = TableRow(
       key: _headingRowKey,
@@ -1254,7 +1254,7 @@ class DataTable2 extends DataTable {
                   _dividerThickness,
             ))
             : null,
-        color: effectiveHeadingRowColor?.resolve(<MaterialState>{}),
+        color: effectiveHeadingRowColor?.resolve(<WidgetState>{}),
       ),
       children: List<Widget>.filled(numberOfCols, const _NullWidget()),
     );
